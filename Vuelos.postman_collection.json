@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "e072ada4-2cb1-46af-92ca-4bf9a88cf770",
+		"name": "Vuelos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28245088"
+	},
+	"item": [
+		{
+			"name": "PostVuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"numero_vuelo\": 1,\r\n    \"fecha\": \"29/06/2023\",\r\n    \"hora\": \"10:00\",\r\n    \"nro_filas\": 5,\r\n    \"nro_asientos_filas\": 10,\r\n    \"tipo_vuelo\": \"Internacional\",\r\n    \"destino\": \"Nueva York\",\r\n    \"origen\": \"Madrid\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/vuelos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"vuelos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVuelo1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/vuelos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"vuelos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllVuelos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/vuelos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"vuelos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateVuelo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero_vuelo\": 1,\r\n    \"fecha\": \"15/06/2023\",\r\n    \"hora\": \"16:00\",\r\n    \"nro_filas\": 5,\r\n    \"nro_asientos_filas\": 10,\r\n    \"tipo_vuelo\": \"Internacional\",\r\n    \"destino\": \"Nueva York\",\r\n    \"origen\": \"Madrid\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/vuelos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"vuelos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/vuelos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"vuelos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
