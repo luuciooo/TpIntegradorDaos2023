@@ -59,7 +59,8 @@ public class VueloRestController {
     @GetMapping
     public ResponseEntity<?> getAllVuelos() {
         try {
-            List<Vuelo> vuelos = vueloService.getAllEntities();
+            List<Vuelo>vuelos = vueloService.getAllEntities();
+            System.out.println(vuelos);
             return ResponseEntity.status(HttpStatus.OK).body(vuelos);
         } catch (Excepcion e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getMessage());

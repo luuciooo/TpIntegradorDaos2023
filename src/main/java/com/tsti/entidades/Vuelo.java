@@ -65,7 +65,7 @@ public class Vuelo {
     // ...
 
     public void setEstado(String estado) {
-        // No se permite establecer manualmente el estado del vuelo
+        this.estado=estado;
     }
 
 
