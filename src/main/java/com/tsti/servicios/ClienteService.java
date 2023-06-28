@@ -10,11 +10,11 @@ public interface ClienteService {
 
     Long saveCliente(ClienteRequestDTO DTO) throws Excepcion;
 
-    Long updateCliente(Long id, ClienteRequestDTO DTO) throws Excepcion;
+    Long updateCliente(ClienteRequestDTO DTO) throws Excepcion;
 
     Cliente getCliente(Long id) throws Excepcion;
 
-    List<Cliente> getAllEntities() throws Excepcion;
+    List<Cliente> getAllClientes() throws Excepcion;
 
-    Long deleteCliente(Long id);
+    Long deleteCliente(Long id) throws Excepcion;
 }

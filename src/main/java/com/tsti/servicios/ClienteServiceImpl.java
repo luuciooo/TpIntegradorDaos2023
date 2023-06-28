@@ -27,7 +27,7 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public Long updateCliente(Long id, ClienteRequestDTO DTO) throws Excepcion {
+    public Long updateCliente(ClienteRequestDTO DTO) throws Excepcion {
        if (dao.existsById(DTO.getDni())){
            Cliente cliente = mapper.map(DTO, Cliente.class);
            dao.save(cliente);
@@ -45,7 +45,7 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public List<Cliente> getAllEntities() throws Excepcion {
+    public List<Cliente> getAllClientes() throws Excepcion {
         List<Cliente> clientes = dao.findAll();
         if(clientes.isEmpty())
             throw new Excepcion("No existe ningun cliente", 400);
@@ -53,7 +53,11 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public Long deleteCliente(Long id) {
-        return null;
+    public Long deleteCliente(Long id) throws Excepcion {
+        if (dao.existsById(id)){
+            dao.deleteById(id);
+            return id;
+        }
+        throw new Excepcion("No existe un cliente con se DNI", 400);
     }
 }
