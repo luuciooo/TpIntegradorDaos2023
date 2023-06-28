@@ -1,5 +1,6 @@
 package com.tsti.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
 // JPA
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 
 @Entity
 @Table(name = "Vuelo")
@@ -52,4 +55,18 @@ public class Vuelo {
     private String origen;
     @Column(name = "estadp")
     private String estado;
+
+    @PrePersist
+    private void prePersist() {
+        // Se establece el estado del vuelo automáticamente
+        this.estado = "registrado";
+    }
+
+    // ...
+
+    public void setEstado(String estado) {
+        // No se permite establecer manualmente el estado del vuelo
+    }
+
+
 }

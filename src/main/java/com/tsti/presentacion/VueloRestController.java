@@ -32,10 +32,8 @@ public class VueloRestController {
         }
     }
 
-    @PutMapping("/{numeroVuelo}")
-    public ResponseEntity<?> actualizarVuelo(
-            @PathVariable("numeroVuelo") Long numeroVuelo,
-            @RequestBody VueloRequestDTO vueloDTO) {
+    @PutMapping("/{numero_vuelo}")
+    public ResponseEntity<?> actualizarVuelo( @PathVariable("numero_vuelo") Long numeroVuelo, @RequestBody VueloRequestDTO vueloDTO) {
         try {
             boolean actualizado = vueloService.updateVuelo(numeroVuelo, vueloDTO);
             if (actualizado) {
@@ -48,10 +46,10 @@ public class VueloRestController {
         }
     }
 
-    @GetMapping("/{numeroVuelo}")
-    public ResponseEntity<?> obtenerVuelo(@PathVariable("numeroVuelo") Long numeroVuelo) {
+    @GetMapping("/{numero_vuelo}")
+    public ResponseEntity<?> getVuelo(@PathVariable("numero_vuelo") Long numero_vuelo) {
         try {
-            Vuelo vuelo = vueloService.getVuelo(numeroVuelo);
+            Vuelo vuelo = vueloService.getVuelo(numero_vuelo);
             return ResponseEntity.status(HttpStatus.OK).body(vuelo);
         } catch (Excepcion e) {
             return ResponseEntity.status(e.getStatusCode()).body(e.getMessage());
@@ -59,7 +57,7 @@ public class VueloRestController {
     }
 
     @GetMapping
-    public ResponseEntity<?> obtenerTodosLosVuelos() {
+    public ResponseEntity<?> getAllVuelos() {
         try {
             List<Vuelo> vuelos = vueloService.getAllEntities();
             return ResponseEntity.status(HttpStatus.OK).body(vuelos);
@@ -68,13 +66,16 @@ public class VueloRestController {
         }
     }
 
-    @DeleteMapping("/{numeroVuelo}")
-    public ResponseEntity<?> eliminarVuelo(@PathVariable("numeroVuelo") Long numeroVuelo) {
-        boolean eliminado = vueloService.deleteVuelo(numeroVuelo);
-        if (eliminado) {
-            return ResponseEntity.status(HttpStatus.OK).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    @DeleteMapping("/{numero_vuelo}")
+    public ResponseEntity<?> eliminarVuelo(@PathVariable("numero_vuelo") Long numero_vuelo) {
+
+        try{
+            boolean eliminado = vueloService.deleteVuelo(numero_vuelo);
+            if (eliminado)
+                return ResponseEntity.status(HttpStatus.OK).build();
+        } catch(Excepcion e) {
+
         }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 }

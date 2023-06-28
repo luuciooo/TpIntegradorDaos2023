@@ -6,15 +6,19 @@ import com.tsti.entidades.Vuelo;
 import com.tsti.exception.Excepcion;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class VueloServiceImpl implements VueloService{
     @Autowired
     private VueloDao dao;
 
-    @Autowired
-    private ModelMapper mapper;
+
+  private ModelMapper mapper = new ModelMapper();
     @Override
     public boolean saveVuelo(VueloRequestDTO DTO) throws Excepcion {
         boolean ret = false;
@@ -55,13 +59,38 @@ public class VueloServiceImpl implements VueloService{
     }
 
     @Override
-    public boolean deleteVuelo(Long numero_vuelo) {
-        Vuelo vuelo =dao.getById(numero_vuelo);
-        if(vuelo==null){return false;}
-        else{
+    public boolean deleteVuelo(Long numero_vuelo) throws Excepcion{
+        boolean ret =false;
+        Optional optionalVuelo = dao.findById(numero_vuelo);
+
+        if (optionalVuelo.isPresent()) {
+
+            Vuelo vuelo = (Vuelo)optionalVuelo.get();
+            vuelo.setEstado("Cancelado");
             dao.delete(vuelo);
+            ret= true;
+        }else{
+            throw new Excepcion("No existe un vuelo con este número", 400);
+        }
+        return ret;
+
+    }
+
+    @Override
+    public boolean reprogramarVuelo(Long numero_vuelo, Date nuevaFecha, String nuevaHora) throws Excepcion{
+
+        Optional<Vuelo> optionalVuelo = dao.findById(numero_vuelo);
+        if (optionalVuelo.isPresent()) {
+            Vuelo vuelo = optionalVuelo.get();
+            vuelo.setFecha(nuevaFecha);
+            vuelo.setHora(nuevaHora);
+            vuelo.setEstado("reprogramado");
+            dao.save(vuelo);
             return true;
+        } else {
+            throw new Excepcion("No existe un vuelo con este número de vuelo", 400);
         }
 
     }
+
 }

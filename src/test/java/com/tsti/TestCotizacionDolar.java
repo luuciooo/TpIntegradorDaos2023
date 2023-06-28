@@ -12,6 +12,7 @@ import com.tsti.servicios.DolarProxy;
 @SpringBootTest
 class TestCotizacionDolar {
 
+
 	@Autowired
 	private DolarProxy proxy;
 	
