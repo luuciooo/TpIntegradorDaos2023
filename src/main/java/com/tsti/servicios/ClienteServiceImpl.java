@@ -6,16 +6,17 @@ import com.tsti.entidades.Cliente;
 import com.tsti.exception.Excepcion;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ClienteServiceImpl implements ClienteService{
 
     @Autowired
     private ClienteDao dao;
 
-    @Autowired
-    private ModelMapper mapper;
+
+    private ModelMapper mapper = new ModelMapper();
     @Override
     public Long saveCliente(ClienteRequestDTO DTO) throws Excepcion {
         if(!dao.existsById(DTO.getDni())){
@@ -49,7 +50,7 @@ public class ClienteServiceImpl implements ClienteService{
         List<Cliente> clientes = dao.findAll();
         if(clientes.isEmpty())
             throw new Excepcion("No existe ningun cliente", 400);
-        return null;
+        return clientes;
     }
 
     @Override

@@ -25,7 +25,6 @@ import java.util.Date;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "dni")
     private Long dni;
     @Column(name = "nombre")
