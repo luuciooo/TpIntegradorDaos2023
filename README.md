@@ -51,11 +51,16 @@ El presente trabajo práctico tiene como objetivo implementar una solución util
 
 ## Configuacion de Base de datos y script
 
+- Primer paso bajarse el repositorio de la rama master
+- Segundo paso crear un nuevo Schema en Worbench "daos2023"
+- Tercero paso Importar daos2023.sql
+- Cuarto Paso Runear La aplicacion
+
 ## Casos de Prueba
 ### Clientes (Abalos Lucio)
 
-- 
+- Clientes.postman_collection.json
 
 ### Vuelos (Ivan Mella)
 
-- 
+- Vuelos.postman_collection.json
