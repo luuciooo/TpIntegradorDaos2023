@@ -54,14 +54,8 @@ El presente trabajo práctico tiene como objetivo implementar una solución util
 ## Casos de Prueba
 ### Clientes (Abalos Lucio)
 
-- Establece/Actualiza/Retorna los datos de cliente.
-- Operaciones requeridas: GET, POST, PUT, DELETE.
-- Datos del cliente: DNI, nombre, apellido, domicilio, e-mail, fecha de nacimiento, número de pasaporte y fecha de vencimiento del pasaporte.
-- Restricciones: No se puede actualizar el DNI del cliente y no puede haber dos clientes con el mismo DNI.
+- 
 
 ### Vuelos (Ivan Mella)
 
-- Establece/Actualiza/Retorna los datos de un vuelo.
-- Operaciones requeridas: GET, POST, PUT, DELETE.
-- Datos del vuelo: Número, fecha/hora, número de filas, número de asientos por fila, tipo de vuelo, destino, origen y estado.
-- Restricciones: No puede haber dos vuelos con el mismo número. Una vez registrado, solo se permite cambiar la fecha y hora del vuelo (lo cual cambia su estado "reprogramado") o eliminar el vuelo (lo cual cambia su estado a "cancelado").
+- 
