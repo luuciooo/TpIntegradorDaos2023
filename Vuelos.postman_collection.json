@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\r\n    \"numero_vuelo\": 1,\r\n    \"fecha\": \"29/06/2023\",\r\n    \"hora\": \"10:00\",\r\n    \"nro_filas\": 5,\r\n    \"nro_asientos_filas\": 10,\r\n    \"tipo_vuelo\": \"Internacional\",\r\n    \"destino\": \"Nueva York\",\r\n    \"origen\": \"Madrid\"\r\n}\r\n",
+					"raw": "\r\n{\r\n    \"numero_vuelo\": 11,\r\n    \"fecha\": \"29/06/2023\",\r\n    \"hora\": \"10:00\",\r\n    \"nro_filas\": 5,\r\n    \"nro_asientos_filas\": 10,\r\n    \"tipo_vuelo\": \"Nacional\",\r\n    \"destino\": \"Santa Fe\",\r\n    \"origen\": \"Chajari\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
